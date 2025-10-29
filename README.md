@@ -1,4 +1,4 @@
-# CompSivualizerSample
+# CompVisualizerSample
 UE5のComponentVisualizerSampleプロジェクト
 
 ## Description
