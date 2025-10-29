@@ -45,6 +45,11 @@ void FSampleCompVisualizer::DrawVisualization(const UActorComponent* Component, 
 	float radius = SampleComp->GetRadius();
 	DrawWireSphere(PDI, owner->GetActorLocation(), FLinearColor::Green, radius, 16, SDPG_World, 0.0f);
 
+	// なんでカプセルの向きをわざわざ各軸で渡す必要がある？Rotation渡して関数内で勝手にいい感じにしてくれたらいいのに
+	FVector X = owner->GetActorForwardVector();
+	FVector Y = owner->GetActorRightVector();
+	FVector Z = owner->GetActorUpVector();
+	DrawWireCapsule(PDI, owner->GetActorLocation(), X, Y, Z, FLinearColor::Blue, radius, SampleComp->GetHalfHeight(), 16, SDPG_World, 0.0f);
 	
 	const TArray<FVector>& vectors = SampleComp->GetVectors();
 	const FTransform& transform = owner->GetActorTransform();
@@ -56,7 +61,7 @@ void FSampleCompVisualizer::DrawVisualization(const UActorComponent* Component, 
 		// SetHitProxy, SetHitProxyで挟んだ描画をクリックしたときにVisProxyHandleClickがコールされる
 		PDI->SetHitProxy(new HSampleCompVisProxy(Component, i));
 		PDI->DrawPoint(vec, FLinearColor::Red, 10.0f, SDPG_Foreground);
-		PDI->SetHitProxy(NULL);
+		PDI->SetHitProxy(nullptr);
 
 		if (i > 0)
 		{

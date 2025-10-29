@@ -33,6 +33,8 @@ public:
 
 	[[nodiscard]] float GetRadius() const { return Radius; }
 
+	[[nodiscard]] float GetHalfHeight() const { return HalfHeight; }
+
 	[[nodiscard]] const TArray<FVector>& GetVectors() const { return Vectors; }
 
 	void SetVector(int32 InIndex, const FVector& InVector);
@@ -44,6 +46,12 @@ private:
 	/// </summary>
 	UPROPERTY(EditAnywhere)
 	float Radius = 1.0f;
+
+	/// <summary>
+	/// コンポーネントを中心とした高さ(カプセル用)
+	/// </summary>
+	UPROPERTY(EditAnywhere)
+	float HalfHeight = 10.0f;
 
 	/// <summary>
 	/// ベクターの配列

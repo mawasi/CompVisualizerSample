@@ -17,7 +17,7 @@ class DEBUGVISUALIZER_API FSampleCompVisualizer2 : public FComponentVisualizer
 {
 public:
 	FSampleCompVisualizer2();
-	~FSampleCompVisualizer2();
+	virtual ~FSampleCompVisualizer2() override;
 
 #pragma region FComponentVisualizer 
 
