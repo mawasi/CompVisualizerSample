@@ -18,7 +18,7 @@ public:
 	// Sets default values for this component's properties
 	USampleComponent2();
 
-protected:
+
 	// Called when the game starts
 	virtual void BeginPlay() override;
 

@@ -6,16 +6,6 @@
 
 #include "CompVisualizerSample/SampleComponent2.h"
 
-FSampleCompVisualizer2::FSampleCompVisualizer2()
-{
-}
-
-FSampleCompVisualizer2::~FSampleCompVisualizer2()
-{
-}
-
-
-
 /// <summary>
 /// Draw visualization for the supplied component
 /// 提供されたコンポーネントの視覚化を描画する

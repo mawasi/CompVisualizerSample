@@ -16,8 +16,8 @@ class USampleComponent;
 class DEBUGVISUALIZER_API FSampleCompVisualizer : public FComponentVisualizer
 {
 public:
-	FSampleCompVisualizer();
-	virtual	~FSampleCompVisualizer() override;
+	FSampleCompVisualizer() = default;
+	virtual	~FSampleCompVisualizer() override = default;
 
 #pragma region FComponentVisualizer 
 
@@ -57,5 +57,5 @@ public:
 	/// </summary>
 	TObjectPtr<USampleComponent> CurrentComponent;
 	
-	int32 SelectPointIndex;
+	int32 SelectPointIndex = 0;
 };
