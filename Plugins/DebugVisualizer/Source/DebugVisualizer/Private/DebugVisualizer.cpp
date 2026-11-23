@@ -8,7 +8,9 @@
 #include "CompVisualizerSample/SampleComponent.h"
 #include "DebugVisualizer/SampleCompVisualizer.h"
 #include "CompVisualizerSample/SampleComponent2.h"
+#include "CompVisualizerSample/SampleComponent3.h"
 #include "DebugVisualizer/SampleCompVisualizer2.h"
+#include "DebugVisualizer/SampleCompVisualizer3.h"
 
 #define LOCTEXT_NAMESPACE "FDebugVisualizerModule"
 
@@ -28,6 +30,10 @@ void FDebugVisualizerModule::StartupModule()
 		TSharedPtr<FSampleCompVisualizer2> visualizer2 = MakeShared<FSampleCompVisualizer2>();
 		GUnrealEd->RegisterComponentVisualizer(USampleComponent2::StaticClass()->GetFName(), visualizer2);
 		visualizer2->OnRegister();
+
+		TSharedPtr<FSampleCompVisualizer3> visualizer3 = MakeShared<FSampleCompVisualizer3>();
+		GUnrealEd->RegisterComponentVisualizer(USampleComponent3::StaticClass()->GetFName(), visualizer3);
+		visualizer3->OnRegister();
 	}
 }
 
@@ -42,6 +48,9 @@ void FDebugVisualizerModule::ShutdownModule()
 
 		const FName& name2 = USampleComponent2::StaticClass()->GetFName();
 		GUnrealEd->UnregisterComponentVisualizer(name2);
+
+		const FName& name3 = USampleComponent3::StaticClass()->GetFName();
+		GUnrealEd->UnregisterComponentVisualizer(name3);
 	}
 }
 
